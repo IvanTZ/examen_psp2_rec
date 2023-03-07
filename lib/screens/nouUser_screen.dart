@@ -67,7 +67,7 @@ class _UserForm extends StatelessWidget {
               SizedBox(height: 10),
               TextFormField(
                 initialValue: userForm.tempUser.name,
-                onChanged: (value) => userForm.nou!.name = value,
+                onChanged: (value) => userForm.nou.name = value,
                 validator: (value) {
                   if (value == null || value.length < 1)
                     return 'El nombre és obligatori';
@@ -78,7 +78,7 @@ class _UserForm extends StatelessWidget {
               SizedBox(height: 10),
               TextFormField(
                 initialValue: userForm.tempUser.email,
-                onChanged: (value) => userForm.nou!.email = value,
+                onChanged: (value) => userForm.nou.email = value,
                 validator: (value) {
                   if (value == null || value.length < 1)
                     return 'El email és obligatori';
@@ -89,7 +89,7 @@ class _UserForm extends StatelessWidget {
               SizedBox(height: 10),
               TextFormField(
                 initialValue: userForm.tempUser.address,
-                onChanged: (value) => userForm.nou!.address = value,
+                onChanged: (value) => userForm.nou.address = value,
                 validator: (value) {
                   if (value == null || value.length < 1)
                     return 'El direccion és obligatoria';
@@ -100,7 +100,7 @@ class _UserForm extends StatelessWidget {
               SizedBox(height: 10),
               TextFormField(
                 initialValue: userForm.tempUser.phone,
-                onChanged: (value) => userForm.nou!.phone = value,
+                onChanged: (value) => userForm.nou.phone = value,
                 validator: (value) {
                   if (value == null || value.length < 1)
                     return 'El telefon és obligatori';
@@ -111,7 +111,8 @@ class _UserForm extends StatelessWidget {
               SizedBox(height: 10),
               TextFormField(
                 initialValue: userForm.tempUser.photo,
-                onChanged: (value) => userForm.nou!.photo = value,
+                onChanged: (value) => userForm.nou.photo = //imagen por defecto
+                    "https://cadena100-cdnmed.agilecontent.com/resources/jpg/1/3/1613997591631.jpg",
                 validator: (value) {
                   if (value == null || value.length < 1)
                     return 'La foto és obligatoria';

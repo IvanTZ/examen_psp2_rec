@@ -3,6 +3,12 @@ import 'package:firebase_demo/models/models.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
+/**
+ * Base de datos en la nube (Firebase)
+ * 
+ * Extends Changenotifier porque es un provider y maneja la información de 
+ * la base de datos
+ */
 class Firebase extends ChangeNotifier {
   final String _baseUrl =
       "examenpmm2223-default-rtdb.europe-west1.firebasedatabase.app";
@@ -24,7 +30,7 @@ class Firebase extends ChangeNotifier {
     // Mapejam la resposta del servidor, per cada usuari, el convertim a la classe i l'afegim a la llista
     usersMap.forEach((key, value) {
       final auxUser = User.fromMapFire(value);
-      //auxUser.firebaseID = key;
+      auxUser.firebaseID = key;
       persons.add(auxUser);
     });
 

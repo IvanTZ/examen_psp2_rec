@@ -5,6 +5,17 @@ import 'package:provider/provider.dart';
 
 import '../providers/firebase.dart';
 
+/**
+ * Usé StatefulWidget porque tengo un Animantion controller y los cambios
+ * se reflejan al instante
+ * 
+ * Esta pagina trata de un login tipico con usuario y contraseña (se hace a
+ * traves de un form), 
+ * con el que podemos guardar las credenciales en nuestro dispositivo mendiante
+ * el uso de Preferences (se activa o desactiva al clicar en el checkbox)
+ * 
+ * Si clicamos en el boton de abajo, nos dirije a la pantalla Home
+ */
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
@@ -66,9 +77,9 @@ class _LoginPageState extends State<LoginPage>
                 TextFormField(
                   validator: (text) {
                     if (text!.length == 0) {
-                      return "Correu es obligatori";
+                      return "Correo es obligatorio";
                     } else if (!emailRegExp.hasMatch(text)) {
-                      return "Format correu incorrecte";
+                      return "Formato de correo incorrecto";
                     }
                     return null;
                   },
@@ -77,8 +88,8 @@ class _LoginPageState extends State<LoginPage>
                   textAlign: TextAlign.left,
                   initialValue: Preferences.email,
                   decoration: InputDecoration(
-                    hintText: 'Escrigui el seu correu',
-                    labelText: 'Correu',
+                    hintText: 'Escribe tu correo',
+                    labelText: 'Correo',
                     counterText: '',
                     icon:
                         Icon(Icons.email, size: 32.0, color: Colors.blue[800]),
@@ -88,11 +99,11 @@ class _LoginPageState extends State<LoginPage>
                 TextFormField(
                   validator: (text) {
                     if (text!.length == 0) {
-                      return "Contrasenya és obligatori";
+                      return "Contraseña es obligatoria";
                     } else if (text.length < 5) {
-                      return "Contrasenya mínim de 5 caràcters";
+                      return "Contraseña mínimo de 5 caracteres";
                     } else if (!contRegExp.hasMatch(text)) {
-                      return "Contrasenya incorrecte";
+                      return "Contraseña incorrecta";
                     }
                     return null;
                   },
@@ -101,8 +112,8 @@ class _LoginPageState extends State<LoginPage>
                   textAlign: TextAlign.left,
                   initialValue: Preferences.password,
                   decoration: InputDecoration(
-                    hintText: 'Escrigui la contrasenya',
-                    labelText: 'Contrasenya',
+                    hintText: 'Escribe la contraseña',
+                    labelText: 'Contraseña',
                     counterText: '',
                     icon: Icon(Icons.lock, size: 32.0, color: Colors.blue[800]),
                   ),
@@ -115,7 +126,7 @@ class _LoginPageState extends State<LoginPage>
                       _isChecked = value!;
                     });
                   },
-                  title: const Text('Recordame'),
+                  title: const Text('Recuerdame'),
                   controlAffinity: ListTileControlAffinity.leading,
                 ),
                 ElevatedButton(
@@ -132,16 +143,6 @@ class _LoginPageState extends State<LoginPage>
                           Preferences.email = '';
                           Preferences.password = '';
                         }
-                        //elegimos que base de datos cargar
-                        /*
-                        if (firebase.persons.length <
-                            userListProvider.users.length) {
-                          firebase.updateData(userListProvider.users);
-                        } else if (userListProvider.users.length <
-                            firebase.persons.length) {
-                          firebase.updateData(firebase.persons);
-                        }
-                        */
                         Navigator.pushReplacementNamed(context, 'home');
                       });
                       mensaje = 'Gràcies \n $_correo \n $_contrasena';

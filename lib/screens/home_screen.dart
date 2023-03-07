@@ -7,6 +7,10 @@ import '../preferences/preferences.dart';
 import '../widgets/widgets.dart';
 import '../ui/ui.dart';
 
+/**
+ * Usamos StatelessWidget porque los cambios no se reflejan al instante, 
+ * solo mediante la recarga de la ventana
+ */
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
@@ -23,20 +27,13 @@ class HomeScreen extends StatelessWidget {
     } else {
       usersLocal = usersProvLocal.users;
     }
-    /*
-    if (usersLocal.isEmpty) {
-      usersFire.forEach((userFire) {
-        usersProvLocal.nouUser(userFire);
-      });
-    }
-    */
 
     return Scaffold(
       appBar: AppBar(
         title: Text('Home Screen'),
         actions: [
           IconButton(
-              onPressed: () => Navigator.pushReplacementNamed(context, 'home'),
+              onPressed: () => Navigator.pushReplacementNamed(context, 'login'),
               icon: const Icon(Icons.logout)),
           Checkbox(
               value: Preferences.online,
@@ -117,6 +114,7 @@ class HomeScreen extends StatelessWidget {
           temp = User(
               id: 0, name: '', email: '', address: '', phone: '', photo: '');
           usersProvLocal.tempUser = temp;
+          usersProvLocal.nou = temp;
           usersProvFire.tempUser = temp;
           usersProvFire.nou = temp;
           Navigator.of(context).pushNamed('nou');

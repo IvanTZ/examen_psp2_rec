@@ -30,7 +30,6 @@ class MyApp extends StatelessWidget {
         'home': (_) => const HomeScreen(),
         'detail': (_) => DetailScreen(),
         'nou': (_) => NouUser(),
-        'map': (_) => const MapaScreen(),
         'login': (_) => LoginPage(),
       },
     );

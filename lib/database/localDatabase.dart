@@ -5,6 +5,9 @@ import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
+/**
+ * Base de datos Local
+ */
 class LocalDatabase {
   static Database? _dataBase;
 

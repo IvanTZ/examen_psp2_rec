@@ -8,6 +8,12 @@ import 'package:provider/provider.dart';
 import '../providers/firebase.dart';
 import '../ui/input_decorations.dart';
 
+/**
+ * Uso de StatelessWidget porque no necesito refrescar ninguna información,
+ * con el Form es suficiente
+ * 
+ * En esta pantalla se muestran los datos del usuario seleccionado en Home
+ */
 class DetailScreen extends StatelessWidget {
   DetailScreen({Key? key}) : super(key: key);
   @override

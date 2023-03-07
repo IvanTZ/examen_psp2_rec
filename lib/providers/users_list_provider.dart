@@ -3,6 +3,14 @@ import 'package:flutter/cupertino.dart';
 import '../models/user.dart';
 import '../database/localDatabase.dart';
 
+/**
+ * Provider de la base de datos en Local
+ * 
+ * Uso los mismos nombre variables que la base de datos local para poder 
+ * manejar las 2 bases de datos con la misma ventana y no crear una para 
+ * cada caso
+ * 
+ */
 class UserListProvider extends ChangeNotifier {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
   List<User> users = [];
