@@ -2,6 +2,11 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
+/**
+ * Model del Usuario que tratamos
+ * 
+ * Para firebase uso otro fromJSon para diferenciar la ID
+ */
 class User {
   User({
     this.id,
@@ -23,14 +28,6 @@ class User {
 
   factory User.fromJson(String str) => User.fromMap(json.decode(str));
   factory User.fromJsonFire(String str) => User.fromMapFire(json.decode(str));
-
-  LatLng getLatLng() {
-    final latlng = this.address.split(',');
-    final latitude = double.parse(latlng[0]);
-    final longitude = double.parse(latlng[1]);
-
-    return LatLng(latitude, longitude);
-  }
 
   String toJson() => json.encode(toMap());
 
